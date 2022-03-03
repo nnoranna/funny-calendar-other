@@ -14,10 +14,11 @@ const formHTML = () => {
         `;
     };
 
-function loadEvent() {
+async function loadEvent() {
     console.log("load");
     const rootElement = document.getElementById("root")
-
+    
+    //Hozzáadjuk a root-hoz a formunkat
     rootElement.insertAdjacentHTML("beforeend", formHTML())
 
     const form = rootElement.querySelector("form")
@@ -47,5 +48,28 @@ function loadEvent() {
             console.log(e.target.value);
         })
     } */
+
+    const nasaApiKey = "hFbGBUFyBfuZvXagMIQz2RK9h5m7ZcKtZSrIES23"
+    
+    const requestedDate = "2020-02-20"
+    const apod = await fetch(`https://api.nasa.gov/planetary/apod?api_key=${nasaApiKey}&date=${requestedDate}`)
+
+
+    //console.log(apod);
+
+    //
+    const apodJson = await apod.json()
+    //console.log(apodJson.explanation);
+
+    fetch(`https://api.nasa.gov/planetary/apod?api_key=${nasaApiKey}&date=${requestedDate}`).then(
+        function (apodResponse) {
+            console.log(apodResponse);
+            apodResponse.json().then(
+                function(apodResponseJson) {
+                    console.log(apodResponseJson.explanation);
+                }
+            )
+        }
+    )
 }
 window.addEventListener("load", loadEvent);
