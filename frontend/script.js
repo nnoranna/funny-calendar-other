@@ -1,33 +1,31 @@
-function init(mathFunction) {
-    var a = 5;
-    var b = 6;
-    //console.log(c);
-    
-    if (a < b){
-        let c = mathFunction(b, a);
-        /*(function(){
-            var c = b - a;
-        })();*/
-        console.log(c);
-    } 
-    else {
-        let c = mathFunction(a, b)
-        /*(function(){
-            var c = a - b;
-        })();  */
-        console.log(c);
+const form = () => {
+        return `
+        <form>
+            <div class="input1">
+                <input type="text" />
+            </div>
+            <div class="input2">
+                <input type="text" />
+            </div>
+            <div class="input3">
+                <input type="text" />
+            </div>
+            <button>Send</button>
+        </form>
+        `;
+    };
+
+function loadEvent() {
+    console.log("load");
+    const rootElement = document.getElementById("root")
+
+    rootElement.insertAdjacentHTML("beforeend", form())
+
+    const inputList = document.querySelectorAll("input")
+    for (const input of inputList) {
+        input.addEventListener("input", function(e) {
+            console.log(e.target.value);
+        })
     }
-
-    //console.log(c);
 }
-
-const initC = (firstNumber, secondNumber) => {
-    return firstNumber - secondNumber;
-};
-
-const initD = (firstNumber, secondNumber) => {
-    return firstNumber * secondNumber;
-}
-
-
-init(initD);
+window.addEventListener("load", loadEvent);

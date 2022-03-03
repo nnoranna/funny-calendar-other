@@ -31,60 +31,14 @@
     border-radius: 0;
   }
 
-
-
-
-header {
-    position: fixed;
-    width: 100%;
-    height: 60px;
-    background-color: teal;
+input {
+  width: 400px;
+  height: 50px;
+  border: 1px solid black;
 }
 
-header button {
-    position: absolute;
-    right: 0;
-    top: 0;
-    width: 40px;
-    height: 40px;
-    margin: 10px;
-}
-
-header button * {
-    pointer-events: none;
-}
-
-header button svg rect {
-    /*az SVG fill-el színezhető, nem colorral*/
-    fill: white;
-    transform-origin: center;
-    transform-box: fill-box;
-    transition: opacity 400ms, transform 400ms;
-}
-
-header button svg rect:nth-child(1){
-    transform: translate(10px, 10px);
-}
-
-header button svg rect:nth-child(2){
-    transform: translate(10px, 19px);
-}
-
-header button svg rect:nth-child(3){
-    transform: translate(10px, 28px);
-}
-
-header button.clicked svg rect:nth-child(1){
-    transform: translate(10px, 10px) rotate(45deg) ;
-}
-
-header button.clicked svg rect:nth-child(2){
-    transform: translate(10px, 19px);
-    opacity: 0;
-}
-
-header button.clicked svg rect:nth-child(3){
-    transform: translate(10px, 28px);
-    transform: translate(10px, 10px) rotate(-45deg);
-
+button {
+  width: 200px;
+  height: 50px;
+  background-color: grey;
 }
